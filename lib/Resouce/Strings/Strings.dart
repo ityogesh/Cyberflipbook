@@ -24,7 +24,7 @@ class MHConstants {
   static var securityQuestion1 = 'Security Questions';
   static var question1 = 'WHO IS YOUR BOSS?';
   static var question2 = 'WHO IS YOUR BEST FRIEND?';
-  static var question3 = 'WHAT WAS YOUR FIRST CAR NAME?';
+  static var question3 = 'WHAT WAS YOUR FIRST CAR MODEL?';
   static var iHaveReadTermsAndConditions = 'I have read and accept the';
   static var termsAndConditions = 'Terms and Condition';
   static var pleaseAcceptTermsAndConditions =

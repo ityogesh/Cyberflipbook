@@ -19,7 +19,7 @@ class _DesktopModeState extends State<DesktopMode> {
       Padding(
         padding: const EdgeInsets.only(left: 80),
         child: Container(
-          width: 440,
+          width: MediaQuery.of(context).size.width*1/3,
           child: Expanded(
               flex: 1,
               child: Padding(
@@ -50,12 +50,12 @@ class _DesktopModeState extends State<DesktopMode> {
         ),
       ),
       Expanded(
-        flex: 1,
+        flex: 2,
         child: Padding(
           padding: const EdgeInsets.only(left: 100, right: 20),
           child: Container(
               //width: 400,
-              height: MediaQuery.of(context).size.height * 95,
+              height: MediaQuery.of(context).size.height *0.95,
               child: Image.asset(
                 'assets/newyork2.jpeg',
                 fit: BoxFit.fill,
