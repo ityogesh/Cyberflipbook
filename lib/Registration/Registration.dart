@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 import '../Validations.dart';
 
 class Registration extends StatefulWidget {
-  Registration(double d, double e, double f, double g, double h, double i,
-      double j, double k, double l, double m, double n);
+  
 
   @override
   _RegistrationState createState() => _RegistrationState();
