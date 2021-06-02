@@ -54,6 +54,8 @@ class MHConstants {
   static var verifyIdentity = 'Verify your Identity';
   static var verifyText = '''Use your finger print or face scanner 
           to verify your identity''';
+  static var twoFactorAuth = '    Two Factor \nAuthentication';
+  static var enterVerificationCode = 'ENTER YOUR VERIFICATION CODE';
   static var passwordShouldContain =
       'Password should contain 10-16 characters made up of:\nUppercase letters(A-Z),\nLowercase letters(a-z),\nNumbers(0-9),\nand special characters(!@#%^&*+)';
   static var changePassword = 'Change Password';

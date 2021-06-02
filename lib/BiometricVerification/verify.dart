@@ -1,16 +1,15 @@
 import 'dart:io';
 
 import 'package:cyberflipbook/ForgoPassword/ForgotpassPage.dart';
+import 'package:cyberflipbook/OTPverification/OTPdesign.dart';
 import 'package:cyberflipbook/Resouce/Strings/Strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'faceid.dart';
 import 'fingerprintverify.dart';
 import 'package:local_auth/local_auth.dart';
 
 class VerifyIdentity extends StatefulWidget {
-  VerifyIdentity(double d, double e, double f, double g, double h, double i,
-      double j, double k, double l, double m, double n);
+  VerifyIdentity();
 
   @override
   _VerifyIdentityState createState() => _VerifyIdentityState();
@@ -20,7 +19,6 @@ class _VerifyIdentityState extends State<VerifyIdentity> {
   bool rememberMe = false;
   bool showTermsAndConditionError = false;
   final _formKey = GlobalKey<FormState>();
-  var service;
   String email, resetcode, password, confirmpassword;
   final LocalAuthentication auth = LocalAuthentication();
   _SupportState _supportState = _SupportState.unknown;
@@ -45,8 +43,6 @@ class _VerifyIdentityState extends State<VerifyIdentity> {
 
   @override
   Widget build(BuildContext context) {
-    // service = Provider.of<SignuploginValidation>(context);
-
     return Padding(
       padding:
           const EdgeInsets.only(top: 150, bottom: 190, right: 15, left: 15),
@@ -58,7 +54,7 @@ class _VerifyIdentityState extends State<VerifyIdentity> {
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Column(children: [
               _icobutton(),
-              _resetpasswordtext(),
+              _verifyIdext(),
               _space(10),
               _innerContainer(),
               _space(10),
@@ -71,7 +67,7 @@ class _VerifyIdentityState extends State<VerifyIdentity> {
     );
   }
 
-  _resetpasswordtext() {
+  _verifyIdext() {
     return Padding(
       padding: const EdgeInsets.only(),
       child: Text(

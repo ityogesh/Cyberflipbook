@@ -31,18 +31,7 @@ class _DesktopModeState extends State<DesktopMode> {
                                           height: heightSize * 0.2,
                                           width: widthSize * 0.15),*/
                           SizedBox(height: 20),
-                          VerifyIdentity(
-                              0.009,
-                              0.04,
-                              widthSize * 0.02,
-                              0.06,
-                              0.04,
-                              0.07,
-                              widthSize * 0.09,
-                              0.05,
-                              0.032,
-                              0.04,
-                              0.030)
+                          VerifyIdentity()
                         ]))),
               ),
             ),
