@@ -1,5 +1,6 @@
 import 'package:cyberflipbook/BiometricVerification/verifyPage.dart';
 import 'package:cyberflipbook/ForgoPassword/ForgotpassPage.dart';
+import 'package:cyberflipbook/OTPverification/OTPdesign.dart';
 import 'package:cyberflipbook/Registration/registrationPage.dart';
 import 'package:cyberflipbook/Resouce/Constants.dart';
 import 'package:cyberflipbook/Resouce/CustomButton.dart';
@@ -119,11 +120,17 @@ class _LoginState extends State<Login> {
 
   _text2() {
     return Center(
-      child: Text(
-        MHConstants.logintext,
-        style: TextStyle(color: Colors.grey, fontSize: 14),
-      ),
-    );
+        child: InkWell(
+            child: Text(
+              MHConstants.logintext,
+              style: TextStyle(color: Colors.grey, fontSize: 14),
+            ),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => VerifyOTP(),
+              );
+            }));
   }
 
   _signup() {
