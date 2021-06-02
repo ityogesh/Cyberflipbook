@@ -1,14 +1,14 @@
+import 'package:cyberflipbook/ECT/EvidenceArray.dart';
 import 'package:cyberflipbook/HOME/HomePage.dart';
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
-import 'package:cyberflipbook/TRAINING/trainingArray.dart';
 import 'package:flutter/material.dart';
 
-class TrainingPage extends StatefulWidget {
+class EvidenceCollectionPage extends StatefulWidget {
   @override
-  _TrainingPageState createState() => _TrainingPageState();
+  _EvidenceCollectionPageState createState() => _EvidenceCollectionPageState();
 }
 
-class _TrainingPageState extends State<TrainingPage> {
+class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   TextEditingController editingController = TextEditingController();
   @override
@@ -42,6 +42,31 @@ class _TrainingPageState extends State<TrainingPage> {
 
   _space(double space) {
     return SizedBox(height: space);
+  }
+
+  _logo() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 70),
+      child: Container(
+        height: 150,
+        child: Row(
+          children: [
+            Image.asset(
+              "assets/GCAlogo1.png",
+              height: 90,
+              width: 100,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 45),
+              child: Text(
+                '   Evidence\nCollection &\n    Transfer',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   _menusearh() {
@@ -93,31 +118,6 @@ class _TrainingPageState extends State<TrainingPage> {
     );
   }
 
-  _logo() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 70, right: 120),
-      child: Container(
-        height: 150,
-        child: Row(
-          children: [
-            Image.asset(
-              "assets/GCAlogo1.png",
-              height: 90,
-              width: 100,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 45),
-              child: Text(
-                '   TRAINING',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
   _back() {
     return InkWell(
       child: Padding(
@@ -148,14 +148,14 @@ class _TrainingPageState extends State<TrainingPage> {
 
   _gridView() {
     return Container(
-      height: 850,
+      height: MediaQuery.of(context).size.height * 2.2,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemCount: training.length,
+        itemCount: evidencecollection.length,
         itemBuilder: (context, index) {
           return InkWell(
             child: Card(
@@ -168,14 +168,14 @@ class _TrainingPageState extends State<TrainingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    training[index]['image2'],
+                    evidencecollection[index]['image2'],
                     height: 50,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    training[index]['Tname'],
+                    evidencecollection[index]['Ename'],
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0,

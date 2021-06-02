@@ -1,3 +1,5 @@
+import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
+
 import 'preventionArray.dart';
 import 'package:flutter/material.dart';
 
@@ -16,35 +18,7 @@ class _PreventionPageState extends State<PreventionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _globalKey,
-        drawer: new Drawer(
-          child: Container(
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                ListTile(
-                  title: Text('HOME'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                  title: Text('ABOUT US'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                    title: Text('Log Out'),
-                    contentPadding: const EdgeInsets.only(left: 30),
-                    leading: Icon(Icons.logout, color: Colors.black))
-              ],
-            ),
-          ),
-        ),
+        drawer: new Drawer(child: CustomDrawer()),
         body: Container(
           /*decoration: BoxDecoration(
               image: DecorationImage(
@@ -246,12 +220,12 @@ class _PreventionPageState extends State<PreventionPage> {
               : descTextShowFlag
                   ? Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('showless',
+                      child: Text('Moredetail>>',
                           style: TextStyle(color: Colors.blue)),
                     )
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('showmore',
+                      child: Text('Moredetail>>',
                           style: TextStyle(color: Colors.blue)),
                     )
         ],

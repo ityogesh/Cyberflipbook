@@ -1,14 +1,14 @@
-import 'package:cyberflipbook/HOME/HomePage.dart';
+import 'package:cyberflipbook/Prevention/prevention.dart';
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
-import 'package:cyberflipbook/TRAINING/trainingArray.dart';
+import 'package:cyberflipbook/VicctimSupport/VicctimArray.dart';
 import 'package:flutter/material.dart';
 
-class TrainingPage extends StatefulWidget {
+class VicctimManagePage extends StatefulWidget {
   @override
-  _TrainingPageState createState() => _TrainingPageState();
+  _VicctimManagePageState createState() => _VicctimManagePageState();
 }
 
-class _TrainingPageState extends State<TrainingPage> {
+class _VicctimManagePageState extends State<VicctimManagePage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   TextEditingController editingController = TextEditingController();
   @override
@@ -30,8 +30,8 @@ class _TrainingPageState extends State<TrainingPage> {
               _logo(),
               _menusearh(),
               _gridView(),
-              _back(),
-              _space(40)
+              // _back(),
+              //_space(40)
               /*Container(
                 height: 100,
               )*/
@@ -40,8 +40,32 @@ class _TrainingPageState extends State<TrainingPage> {
         ));
   }
 
-  _space(double space) {
+  /* _space(double space) {
     return SizedBox(height: space);
+  }*/
+  _logo() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 70, right: 120),
+      child: Container(
+        height: 150,
+        child: Row(
+          children: [
+            Image.asset(
+              "assets/GCAlogo1.png",
+              height: 90,
+              width: 100,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 45),
+              child: Text(
+                '     VICCTIM\nMANAGEMENT',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   _menusearh() {
@@ -92,33 +116,7 @@ class _TrainingPageState extends State<TrainingPage> {
       ),
     );
   }
-
-  _logo() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 70, right: 120),
-      child: Container(
-        height: 150,
-        child: Row(
-          children: [
-            Image.asset(
-              "assets/GCAlogo1.png",
-              height: 90,
-              width: 100,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 45),
-              child: Text(
-                '   TRAINING',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  _back() {
+  /*_back() {
     return InkWell(
       child: Padding(
         padding: const EdgeInsets.only(right: 200),
@@ -144,7 +142,7 @@ class _TrainingPageState extends State<TrainingPage> {
             ));
       },
     );
-  }
+  }*/
 
   _gridView() {
     return Container(
@@ -155,7 +153,7 @@ class _TrainingPageState extends State<TrainingPage> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemCount: training.length,
+        itemCount: vicctimManagement.length,
         itemBuilder: (context, index) {
           return InkWell(
             child: Card(
@@ -168,14 +166,14 @@ class _TrainingPageState extends State<TrainingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    training[index]['image2'],
+                    vicctimManagement[index]['image2'],
                     height: 50,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    training[index]['Tname'],
+                    vicctimManagement[index]['VMname'],
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0,
@@ -186,6 +184,10 @@ class _TrainingPageState extends State<TrainingPage> {
               ),
             ),
             onTap: () {
+              if (index == 2) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PreventionPage()));
+              }
               //Navigator.pop(context, ((context) => Home[index]));
               /*Navigator.push(
                             context,
