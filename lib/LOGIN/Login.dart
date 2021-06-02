@@ -208,12 +208,12 @@ class _LoginState extends State<Login> {
             : null;
     var image1 = types == AdminLepButtonTypes.admin
         ? isSelectedadmin
-            ? 'assets/Checked Icon2.png'
+            ? 'assets/blank.png'
             : 'assets/Checked Icon.png'
         : types == AdminLepButtonTypes.lep
             ? isSelectedadmin
                 ? 'assets/Checked Icon.png'
-                : 'assets/Checked Icon2.png'
+                : 'assets/blank.png'
             : null;
     var colorz = types == AdminLepButtonTypes.lep
         ? isSelectedadmin

@@ -1,5 +1,7 @@
+import 'package:cyberflipbook/ECT/EvidenceCollection.dart';
 import 'package:cyberflipbook/HOME/homeArray.dart';
 import 'package:cyberflipbook/TRAINING/TrainingPage.dart';
+import 'package:cyberflipbook/VicctimSuppoort/VicctimManagement.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -46,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/backgroundhome.jpg"),
+            image: AssetImage("assets/backgroundhome.png"),
             fit: BoxFit.fill,
           )),
           child: SingleChildScrollView(
@@ -160,6 +162,20 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => TrainingPage(),
+                    ));
+              }
+              if (index == 2) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EvidenceCollectionPage(),
+                    ));
+              }
+              if (index == 5) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => VicctimManagePage(),
                     ));
               }
               print(index);

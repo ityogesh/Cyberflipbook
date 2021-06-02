@@ -1,17 +1,16 @@
-import 'preventionArray.dart';
+import 'package:cyberflipbook/Prevention/prevention.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class PreventionPage extends StatefulWidget {
+import 'VicctimArray.dart';
+
+class VicctimManagePage extends StatefulWidget {
   @override
-  _PreventionPageState createState() => _PreventionPageState();
+  _VicctimManagePageState createState() => _VicctimManagePageState();
 }
 
-class _PreventionPageState extends State<PreventionPage> {
+class _VicctimManagePageState extends State<VicctimManagePage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   TextEditingController editingController = TextEditingController();
-  bool descTextShowFlag = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,53 +45,30 @@ class _PreventionPageState extends State<PreventionPage> {
           ),
         ),
         body: Container(
-          /*decoration: BoxDecoration(
+          decoration: BoxDecoration(
               image: DecorationImage(
             image: AssetImage("assets/backgroundhome.png"),
             fit: BoxFit.fill,
-          )),*/
+          )),
           child: SingleChildScrollView(
               child: Column(
             children: [
               _logo(),
               _menusearh(),
-              _help(),
               _gridView(),
-              _image(),
+              // _back(),
+              //_space(40)
+              /*Container(
+                height: 100,
+              )*/
             ],
           )),
         ));
   }
 
-  _image() {
-    return Container(
-        height: 250,
-        width: 400,
-        child: Image.asset(
-          "assets/Video.png",
-        ));
-  }
-
-  _help() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 280, top: 10),
-      child: InkWell(
-        child: Container(
-          child: Icon(
-            Icons.help_sharp,
-            color: Colors.blue,
-          ),
-        ),
-        onTap: () {
-          /* showDialog(
-            context: context,
-            builder: (context) => Help(),
-          );*/
-        },
-      ),
-    );
-  }
-
+  /* _space(double space) {
+    return SizedBox(height: space);
+  }*/
   _logo() {
     return Padding(
       padding: const EdgeInsets.only(top: 70, right: 120),
@@ -101,14 +77,14 @@ class _PreventionPageState extends State<PreventionPage> {
         child: Row(
           children: [
             Image.asset(
-              "assets/GCAlogo1.png",
+              "assets/CFB-Logo.png",
               height: 90,
               width: 100,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 35),
+              padding: const EdgeInsets.only(left: 45),
               child: Text(
-                '       VICTIM\nMANAGEMENT',
+                '     VICCTIM\nMANAGEMENT',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             )
@@ -166,101 +142,88 @@ class _PreventionPageState extends State<PreventionPage> {
       ),
     );
   }
+  /*_back() {
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 200),
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: Color.fromRGBO(46, 91, 255, 2)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white),
+          height: 30,
+          width: 100,
+          child: Center(
+              child: Text(
+            'Back',
+            style: TextStyle(color: Colors.green),
+          )),
+        ),
+      ),
+      onTap: () {
+        Navigator.pop(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ));
+      },
+    );
+  }*/
 
   _gridView() {
     return Container(
-      height: 550,
-      child: ListView.builder(
+      height: 850,
+      child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
-        itemCount: prevention.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemCount: vicctimManagement.length,
         itemBuilder: (context, index) {
-          // var service = prevention[index];
           return InkWell(
-            child: Container(
-              //height: 130,
+            child: Card(
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 0.3, vertical: 0.3),
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Color.fromRGBO(207, 217, 253, 5))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      right: 240,
-                    ),
-                    child: Text(
-                      prevention[index]['topics'],
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
+                  Image.asset(
+                    vicctimManagement[index]['image2'],
+                    height: 50,
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  postText(index),
-                  showmoreless(index)
+                  Text(
+                    vicctimManagement[index]['VMname'],
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0,
+                      color: Colors.black,
+                    ),
+                  ),
                 ],
               ),
             ),
-            /*onTap: () {
-                //Navigator.pop(context, ((context) => Home[index]));
-                /*Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Home[index]['onTap']));*/
-                print(index);
-              },*/
+            onTap: () {
+              if (index == 2) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PreventionPage()));
+              }
+              //Navigator.pop(context, ((context) => Home[index]));
+              /*Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Home[index]['onTap']));*/
+              print(index);
+            },
           );
         },
       ),
-    );
-  }
-
-  postText(index) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-            '${prevention[index]['text']}' == "null"
-                ? ""
-                : prevention[index]['text'],
-            style: TextStyle(fontSize: 16.0),
-            maxLines:
-                descTextShowFlag ? '${prevention[index]['text']}'.length : 3,
-            textAlign: TextAlign.start),
-      ),
-    );
-  }
-
-  showmoreless(index) {
-    return InkWell(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          '${prevention[index]['text']}'.length <= 120
-              ? Text(
-                  "",
-                  style: TextStyle(
-                    fontSize: 1.0,
-                  ),
-                )
-              : descTextShowFlag
-                  ? Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: Text('More detail>>',
-                          style: TextStyle(color: Colors.blue)),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text('More detail>>',
-                          style: TextStyle(color: Colors.blue)),
-                    )
-        ],
-      ),
-      onTap: () {
-        setState(() {
-          descTextShowFlag = !descTextShowFlag;
-        });
-      },
     );
   }
 }
