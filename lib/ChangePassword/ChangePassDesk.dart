@@ -15,7 +15,7 @@ class _DesktopModeState extends State<DesktopMode> {
     return Center(
       child: Row(children: [
         Container(
-          // width: 440,
+          // width: 450,
           child: Expanded(
               flex: 1,
               child: Padding(
@@ -24,9 +24,9 @@ class _DesktopModeState extends State<DesktopMode> {
                     child: Column(children: [
                   SizedBox(height: 20),
                   Container(
-                    width: 400,
-                    child: ChangePassword(0.009, 0.04, widthSize * 0.02, 0.06,
-                        0.04, 0.07, widthSize * 0.09, 0.05, 0.032, 0.04, 0.030),
+                    width: 450,
+                    //height: 500,
+                    child: ChangePassword(),
                   )
                 ])),
               )),

@@ -8,8 +8,7 @@ import 'package:flutter/material.dart';
 import '../Validations.dart';
 
 class ChangePassword extends StatefulWidget {
-  ChangePassword(double d, double e, double f, double g, double h, double i,
-      double j, double k, double l, double m, double n);
+  ChangePassword();
 
   @override
   _ChangePasswordState createState() => _ChangePasswordState();

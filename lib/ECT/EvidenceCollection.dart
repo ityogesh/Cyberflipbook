@@ -162,11 +162,7 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
         ),
       ),
       onTap: () {
-        Navigator.pop(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(),
-            ));
+        Navigator.pop(context);
       },
     );
   }

@@ -13,11 +13,7 @@ class _MobileModeState extends State<MobileMode> {
     //final double heightSize = MediaQuery.of(context).size.height;
 
     return Center(
-      child: Container(
-          child: Column(children: [
-        ChangePassword(0.009, 0.04, widthSize * 0.04, 0.06, 0.04, 0.07,
-            widthSize * 0.09, 0.05, 0.032, 0.04, 0.032)
-      ])),
+      child: Container(child: Column(children: [ChangePassword()])),
     );
   }
 }

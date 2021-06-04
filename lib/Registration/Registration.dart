@@ -9,13 +9,18 @@ import 'package:flutter/material.dart';
 import '../Validations.dart';
 
 class Registration extends StatefulWidget {
-  
+  final constraints;
 
+  Registration(this.constraints);
   @override
-  _RegistrationState createState() => _RegistrationState();
+  _RegistrationState createState() => _RegistrationState(constraints);
 }
 
 class _RegistrationState extends State<Registration> {
+  final constraints;
+
+  _RegistrationState(this.constraints);
+
   bool rememberMe = false;
   bool showTermsAndConditionError = false;
   bool isSelectedadmin = true;
@@ -216,8 +221,10 @@ class _RegistrationState extends State<Registration> {
       padding: const EdgeInsets.only(left: 4),
       child: Container(
         height: 45,
-        width: 210,
-        //width: MediaQuery.of(context).size.width * 0.53,
+        //width: 210,
+        width: constraints.maxWidth <= 1024
+            ? MediaQuery.of(context).size.width * 0.55
+            : MediaQuery.of(context).size.width * 0.35 / 2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           border: Border.all(color: Colors.grey),
@@ -272,8 +279,10 @@ class _RegistrationState extends State<Registration> {
     //final data = MediaQuery.of(context);
     return Container(
       height: 45,
-      width: 145,
-      //width: MediaQuery.of(context).size.width * 0.34,
+      //width: 145,
+      width: constraints.maxWidth <= 1024
+          ? MediaQuery.of(context).size.width * 0.37
+          : MediaQuery.of(context).size.width * 0.24 / 2,
       //width: data.size.width / 4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
@@ -381,12 +390,12 @@ class _RegistrationState extends State<Registration> {
             : null;
     var image1 = types == AdminLepButtonTypes.admin
         ? isSelectedadmin
-            ? 'assets/Checked Icon2.png'
+            ? 'assets/blank.png'
             : 'assets/Checked Icon.png'
         : types == AdminLepButtonTypes.lep
             ? isSelectedadmin
                 ? 'assets/Checked Icon.png'
-                : 'assets/Checked Icon2.png'
+                : 'assets/blank.png'
             : null;
     var colorz = types == AdminLepButtonTypes.lep
         ? isSelectedadmin
@@ -428,6 +437,7 @@ class _RegistrationState extends State<Registration> {
 
   _buttonRegistration() {
     return CustomButton(
+        width: MediaQuery.of(context).size.width,
         buttonName: MHConstants.register,
         onPressed: () {
           if (_formKey.currentState.validate()) return null;

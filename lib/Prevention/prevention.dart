@@ -1,3 +1,5 @@
+import 'package:cyberflipbook/CustomListView.dart';
+
 import 'preventionArray.dart';
 import 'package:flutter/material.dart';
 
@@ -59,6 +61,7 @@ class _PreventionPageState extends State<PreventionPage> {
               _help(),
               _gridView(),
               _image(),
+              _back()
             ],
           )),
         ));
@@ -169,7 +172,7 @@ class _PreventionPageState extends State<PreventionPage> {
 
   _gridView() {
     return Container(
-      height: 550,
+      height: 1500,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
@@ -179,36 +182,14 @@ class _PreventionPageState extends State<PreventionPage> {
           return InkWell(
             child: Container(
               //height: 130,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      right: 240,
-                    ),
-                    child: Text(
-                      prevention[index]['topics'],
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  postText(index),
-                  showmoreless(index)
-                ],
+              child: CustomListView(
+                title: prevention[index]['topics'],
+                description: prevention[index]['description'],
+                link: prevention[index]['link'],
+                thumbnailImage: prevention[index]['thumbnailImage'],
+                videoUrl: prevention[index]['videourl'],
               ),
             ),
-            /*onTap: () {
-                //Navigator.pop(context, ((context) => Home[index]));
-                /*Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Home[index]['onTap']));*/
-                print(index);
-              },*/
           );
         },
       ),
@@ -260,6 +241,30 @@ class _PreventionPageState extends State<PreventionPage> {
         setState(() {
           descTextShowFlag = !descTextShowFlag;
         });
+      },
+    );
+  }
+
+  _back() {
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 200),
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: Color.fromRGBO(46, 91, 255, 2)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white),
+          height: 30,
+          width: 100,
+          child: Center(
+              child: Text(
+            'Back',
+            style: TextStyle(color: Colors.green),
+          )),
+        ),
+      ),
+      onTap: () {
+        Navigator.pop(context);
       },
     );
   }

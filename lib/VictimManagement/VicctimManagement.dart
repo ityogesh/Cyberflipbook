@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'VicctimArray.dart';
 
-class VicctimManagePage extends StatefulWidget {
+class VictimManagePage extends StatefulWidget {
   @override
-  _VicctimManagePageState createState() => _VicctimManagePageState();
+  _VictimManagePageState createState() => _VictimManagePageState();
 }
 
-class _VicctimManagePageState extends State<VicctimManagePage> {
+class _VictimManagePageState extends State<VictimManagePage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   TextEditingController editingController = TextEditingController();
   @override
@@ -56,7 +56,7 @@ class _VicctimManagePageState extends State<VicctimManagePage> {
               _logo(),
               _menusearh(),
               _gridView(),
-              // _back(),
+              _back(),
               //_space(40)
               /*Container(
                 height: 100,
@@ -69,6 +69,30 @@ class _VicctimManagePageState extends State<VicctimManagePage> {
   /* _space(double space) {
     return SizedBox(height: space);
   }*/
+  _back() {
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 200),
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: Color.fromRGBO(46, 91, 255, 2)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white),
+          height: 30,
+          width: 100,
+          child: Center(
+              child: Text(
+            'Back',
+            style: TextStyle(color: Colors.green),
+          )),
+        ),
+      ),
+      onTap: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
   _logo() {
     return Padding(
       padding: const EdgeInsets.only(top: 70, right: 120),
@@ -84,7 +108,7 @@ class _VicctimManagePageState extends State<VicctimManagePage> {
             Padding(
               padding: const EdgeInsets.only(left: 45),
               child: Text(
-                '     VICCTIM\nMANAGEMENT',
+                '     VICTIM\nMANAGEMENT',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             )
@@ -142,33 +166,6 @@ class _VicctimManagePageState extends State<VicctimManagePage> {
       ),
     );
   }
-  /*_back() {
-    return InkWell(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 200),
-        child: Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: Color.fromRGBO(46, 91, 255, 2)),
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white),
-          height: 30,
-          width: 100,
-          child: Center(
-              child: Text(
-            'Back',
-            style: TextStyle(color: Colors.green),
-          )),
-        ),
-      ),
-      onTap: () {
-        Navigator.pop(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(),
-            ));
-      },
-    );
-  }*/
 
   _gridView() {
     return Container(

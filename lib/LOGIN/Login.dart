@@ -265,6 +265,7 @@ class _LoginState extends State<Login> {
 
     return CustomButton(
         buttonName: buttonName,
+        width: MediaQuery.of(context).size.width,
         onPressed: () {
           FocusScope.of(context).unfocus();
           if (_formKey.currentState.validate())

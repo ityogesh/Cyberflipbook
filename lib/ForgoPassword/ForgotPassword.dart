@@ -8,8 +8,7 @@ import '../Validations.dart';
 import 'SQPage.dart';
 
 class ForgotPassword extends StatefulWidget {
-  ForgotPassword(double d, double e, double f, double g, double h, double i,
-      double j, double k, double l, double m, double n);
+  ForgotPassword();
 
   @override
   _ForgotPasswordState createState() => _ForgotPasswordState();
@@ -68,6 +67,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               padding: const EdgeInsets.only(left: 15),
               child: CustomButton(
                   buttonName: MHConstants.sendcode,
+                  width: MediaQuery.of(context).size.width,
                   onPressed: () {
                     if (_formKey.currentState.validate())
                       return showDialog(

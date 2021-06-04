@@ -13,9 +13,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth <= 1024) {
-          return MobileMode();
+          return MobileMode(constraints);
         } else {
-          return DesktopMode();
+          return DesktopMode(constraints);
         }
       },
     );
