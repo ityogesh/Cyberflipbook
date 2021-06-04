@@ -1,6 +1,8 @@
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:flutter/material.dart';
 
+import 'ResultPage.dart';
+
 class Investigation extends StatefulWidget {
   @override
   _InvestigationState createState() => _InvestigationState();
@@ -241,7 +243,13 @@ class _InvestigationState extends State<Investigation> {
           ),
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ResultPage(),
+            ));
+      },
     );
   }
 

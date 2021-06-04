@@ -1,6 +1,7 @@
 import 'package:cyberflipbook/ECT/EvidenceCollection.dart';
 import 'package:cyberflipbook/HOME/homeArray.dart';
 import 'package:cyberflipbook/INVESTIGATION/Investigation.dart';
+import 'package:cyberflipbook/References/reference.dart';
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:cyberflipbook/TRAINING/TrainingPage.dart';
 import 'package:cyberflipbook/VicctimSupport/VicctimManagement.dart';
@@ -157,6 +158,13 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => VicctimManagePage(),
+                    ));
+              }
+              if (index == 6) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => References(),
                     ));
               }
               print(index);
