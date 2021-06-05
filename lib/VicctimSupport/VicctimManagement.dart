@@ -1,14 +1,14 @@
-import 'package:cyberflipbook/ECT/EvidenceArray.dart';
-import 'package:cyberflipbook/HOME/HomePage.dart';
+import 'package:cyberflipbook/Prevention/prevention.dart';
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
+import 'package:cyberflipbook/VicctimSupport/VicctimArray.dart';
 import 'package:flutter/material.dart';
 
-class EvidenceCollectionPage extends StatefulWidget {
+class VicctimManagePage extends StatefulWidget {
   @override
-  _EvidenceCollectionPageState createState() => _EvidenceCollectionPageState();
+  _VicctimManagePageState createState() => _VicctimManagePageState();
 }
 
-class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
+class _VicctimManagePageState extends State<VicctimManagePage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   TextEditingController editingController = TextEditingController();
   @override
@@ -30,8 +30,8 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
               _logo(),
               _menusearh(),
               _gridView(),
-              _back(),
-              _space(40)
+              // _back(),
+              //_space(40)
               /*Container(
                 height: 100,
               )*/
@@ -40,13 +40,12 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
         ));
   }
 
-  _space(double space) {
+  /* _space(double space) {
     return SizedBox(height: space);
-  }
-
+  }*/
   _logo() {
     return Padding(
-      padding: const EdgeInsets.only(top: 70),
+      padding: const EdgeInsets.only(top: 70, right: 120),
       child: Container(
         height: 150,
         child: Row(
@@ -59,7 +58,7 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
             Padding(
               padding: const EdgeInsets.only(left: 45),
               child: Text(
-                '   Evidence\nCollection &\n    Transfer',
+                '     VICCTIM\nMANAGEMENT',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             )
@@ -117,8 +116,7 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
       ),
     );
   }
-
-  _back() {
+  /*_back() {
     return InkWell(
       child: Padding(
         padding: const EdgeInsets.only(right: 200),
@@ -144,18 +142,18 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
             ));
       },
     );
-  }
+  }*/
 
   _gridView() {
     return Container(
-      height: MediaQuery.of(context).size.height * 2.2,
+      height: 850,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemCount: evidencecollection.length,
+        itemCount: vicctimManagement.length,
         itemBuilder: (context, index) {
           return InkWell(
             child: Card(
@@ -168,14 +166,14 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    evidencecollection[index]['image2'],
+                    vicctimManagement[index]['image2'],
                     height: 50,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    evidencecollection[index]['Ename'],
+                    vicctimManagement[index]['VMname'],
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0,
@@ -186,6 +184,10 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
               ),
             ),
             onTap: () {
+              if (index == 2) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PreventionPage()));
+              }
               //Navigator.pop(context, ((context) => Home[index]));
               /*Navigator.push(
                             context,

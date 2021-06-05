@@ -1,4 +1,5 @@
 import 'package:cyberflipbook/HOME/HomePage.dart';
+import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:cyberflipbook/TRAINING/trainingArray.dart';
 import 'package:flutter/material.dart';
 
@@ -15,51 +16,18 @@ class _TrainingPageState extends State<TrainingPage> {
     return Scaffold(
         key: _globalKey,
         drawer: new Drawer(
-          child: Container(
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                ListTile(
-                  title: Text('HOME'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                  title: Text('ABOUT US'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                    title: Text('Log Out'),
-                    contentPadding: const EdgeInsets.only(left: 30),
-                    leading: Icon(Icons.logout, color: Colors.black))
-              ],
-            ),
-          ),
+          child: CustomDrawer(),
         ),
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/backgroundhome.png"),
+            image: AssetImage("assets/backgroundhome.jpg"),
             fit: BoxFit.fill,
           )),
           child: SingleChildScrollView(
               child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 70, right: 120),
-                child: Image.asset(
-                  "assets/TrainingLogo.png",
-                  height: 150,
-                  width: 200,
-                ),
-              ),
+              _logo(),
               _menusearh(),
               _gridView(),
               _back(),
@@ -121,6 +89,31 @@ class _TrainingPageState extends State<TrainingPage> {
         onChanged: (value) {
           searchText = value;
         },
+      ),
+    );
+  }
+
+  _logo() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 70, right: 120),
+      child: Container(
+        height: 150,
+        child: Row(
+          children: [
+            Image.asset(
+              "assets/GCAlogo1.png",
+              height: 90,
+              width: 100,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 45),
+              child: Text(
+                '   TRAINING',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
