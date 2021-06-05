@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/backgroundhome.jpg"),
+            image: AssetImage("assets/backgroundhome.png"),
             fit: BoxFit.fill,
           )),
           child: SingleChildScrollView(

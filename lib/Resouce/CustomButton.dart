@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 15),
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 150,
         child: RawMaterialButton(
           fillColor: Color.fromRGBO(53, 106, 255, 5),
           shape: RoundedRectangleBorder(

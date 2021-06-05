@@ -143,7 +143,7 @@ class _PreventionPageState extends State<PreventionPage> {
 
   _gridView() {
     return Container(
-      height: 450,
+      height: 550,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
@@ -159,7 +159,7 @@ class _PreventionPageState extends State<PreventionPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      right: 200,
+                      right: 240,
                     ),
                     child: Text(
                       prevention[index]['topics'],
@@ -226,7 +226,7 @@ class _PreventionPageState extends State<PreventionPage> {
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text('Moredetail>>',
-                          style: TextStyle(color: Colors.blue)),
+                      style: TextStyle(color: Colors.blue)),
                     )
         ],
       ),
