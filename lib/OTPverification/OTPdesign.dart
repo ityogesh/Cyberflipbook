@@ -150,6 +150,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
         CustomButton(
           buttonName: "Submit",
           onPressed: () {},
+          width: 150,
         )
       ],
     );

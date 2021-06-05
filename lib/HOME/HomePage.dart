@@ -4,7 +4,7 @@ import 'package:cyberflipbook/INVESTIGATION/Investigation.dart';
 import 'package:cyberflipbook/References/reference.dart';
 import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:cyberflipbook/TRAINING/TrainingPage.dart';
-import 'package:cyberflipbook/VicctimSupport/VicctimManagement.dart';
+import 'package:cyberflipbook/VictimManagement/VicctimManagement.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/backgroundhome.png"),
+            image: AssetImage("assets/backgroundhome.jpg"),
             fit: BoxFit.fill,
           )),
           child: SingleChildScrollView(
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => VicctimManagePage(),
+                      builder: (context) => VictimManagePage(),
                     ));
               }
               if (index == 6) {

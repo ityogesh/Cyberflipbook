@@ -1,3 +1,5 @@
+import 'package:cyberflipbook/ChangePassword/ChangePassPage.dart';
+import 'package:cyberflipbook/ChangePassword/ChangePassword.dart';
 import 'package:cyberflipbook/ChangePassword/FactorPage.dart';
 import 'package:cyberflipbook/Resouce/Constants.dart';
 import 'package:cyberflipbook/Resouce/CustomButton.dart';
@@ -21,31 +23,35 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 80, top: 150, right: 15, left: 15),
-      child: Card(
-        shadowColor: Colors.black,
-        elevation: 25,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 13),
-            child: Column(
-              children: [
-                _icobutton(),
-                _securityText(),
-                _customTextField(types: RegistrationFieldTypes.question1),
-                _space(30),
-                _customTextField(types: RegistrationFieldTypes.question2),
-                _space(30),
-                _customTextField(types: RegistrationFieldTypes.question3),
-                _space(30),
-                _attempT(),
-                _space(10),
-                _buttonSecurityQuestioN(),
-                _space(20)
-              ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding:
+            const EdgeInsets.only(bottom: 80, top: 150, right: 15, left: 15),
+        child: Card(
+          shadowColor: Colors.black,
+          elevation: 25,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 13),
+              child: Column(
+                children: [
+                  _icobutton(),
+                  _securityText(),
+                  _customTextField(types: RegistrationFieldTypes.question1),
+                  _space(30),
+                  _customTextField(types: RegistrationFieldTypes.question2),
+                  _space(30),
+                  _customTextField(types: RegistrationFieldTypes.question3),
+                  _space(30),
+                  _attempT(),
+                  _space(10),
+                  _buttonSecurityQuestioN(),
+                  _space(20)
+                ],
+              ),
             ),
           ),
         ),
@@ -180,11 +186,13 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
           buttonName: MHConstants.sendcode,
           onPressed: () {
             FocusScope.of(context).unfocus();
-            if (_formKey.currentState.validate())
-              return showDialog(
+            if (_formKey.currentState.validate()) {
+              Navigator.pop(context);
+              showDialog(
                 context: context,
-                builder: (context) => FactorPage(),
+                builder: (context) => ChangePassPage(),
               );
+            }
           }),
     );
   }

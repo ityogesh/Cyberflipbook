@@ -2,11 +2,18 @@ import 'package:cyberflipbook/Registration/Registration.dart';
 import 'package:flutter/material.dart';
 
 class DesktopMode extends StatefulWidget {
+  final constraints;
+
+  DesktopMode(this.constraints);
+
   @override
-  _DesktopModeState createState() => _DesktopModeState();
+  _DesktopModeState createState() => _DesktopModeState(constraints);
 }
 
 class _DesktopModeState extends State<DesktopMode> {
+  final constraints;
+
+  _DesktopModeState(this.constraints);
   @override
   Widget build(BuildContext context) {
     final double widthSize = MediaQuery.of(context).size.width;
@@ -26,27 +33,25 @@ class _DesktopModeState extends State<DesktopMode> {
                 padding: const EdgeInsets.only(left: 10),
                 child: SingleChildScrollView(
                   child: Container(
-                     // width: 100,
+                      // width: 100,
                       child: Column(
                           //crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 20),
-                            Registration(
-                               )
-                          ])),
+                        SizedBox(height: 20),
+                        Registration(constraints)
+                      ])),
                 ),
               )),
         ),
       ),
       Expanded(
-        flex:2,
+        flex: 2,
         child: Padding(
           padding: const EdgeInsets.only(left: 100, right: 20),
           child: Container(
-              
-              height: MediaQuery.of(context).size.height *0.95,
+              height: MediaQuery.of(context).size.height * 0.95,
               child: Image.asset(
-                'assets/new_york_1.png',
+                'assets/newyork2.jpeg',
                 fit: BoxFit.fill,
               )),
         ),

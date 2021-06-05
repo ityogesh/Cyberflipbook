@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({
-    this.buttonName,
-    this.onPressed,
-  });
+  CustomButton({this.buttonName, this.onPressed, this.width});
   final String buttonName;
   final GestureTapCallback onPressed;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 15),
       child: Container(
-        width: 150,
+        width: width,
         child: RawMaterialButton(
           fillColor: Color.fromRGBO(53, 106, 255, 5),
           shape: RoundedRectangleBorder(

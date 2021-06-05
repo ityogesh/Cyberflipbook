@@ -137,11 +137,7 @@ class _TrainingPageState extends State<TrainingPage> {
         ),
       ),
       onTap: () {
-        Navigator.pop(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(),
-            ));
+        Navigator.pop(context);
       },
     );
   }
