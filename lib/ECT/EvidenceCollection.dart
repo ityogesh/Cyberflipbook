@@ -1,5 +1,6 @@
 import 'package:cyberflipbook/ECT/EvidenceArray.dart';
 import 'package:cyberflipbook/HOME/HomePage.dart';
+import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:flutter/material.dart';
 
 class EvidenceCollectionPage extends StatefulWidget {
@@ -15,38 +16,12 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
     return Scaffold(
         key: _globalKey,
         drawer: new Drawer(
-          child: Container(
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                ListTile(
-                  title: Text('HOME'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                  title: Text('ABOUT US'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                    title: Text('Log Out'),
-                    contentPadding: const EdgeInsets.only(left: 30),
-                    leading: Icon(Icons.logout, color: Colors.black))
-              ],
-            ),
-          ),
+          child: CustomDrawer(),
         ),
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/backgroundhome.png"),
+            image: AssetImage("assets/backgroundhome.jpg"),
             fit: BoxFit.fill,
           )),
           child: SingleChildScrollView(
@@ -77,7 +52,7 @@ class _EvidenceCollectionPageState extends State<EvidenceCollectionPage> {
         child: Row(
           children: [
             Image.asset(
-              "assets/CFB-Logo.png",
+              "assets/GCAlogo1.png",
               height: 90,
               width: 100,
             ),

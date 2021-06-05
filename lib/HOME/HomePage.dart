@@ -1,8 +1,10 @@
 import 'package:cyberflipbook/ECT/EvidenceCollection.dart';
 import 'package:cyberflipbook/HOME/homeArray.dart';
+import 'package:cyberflipbook/INVESTIGATION/Investigation.dart';
+import 'package:cyberflipbook/References/reference.dart';
+import 'package:cyberflipbook/Resouce/CostomDrawer.dart';
 import 'package:cyberflipbook/TRAINING/TrainingPage.dart';
 import 'package:cyberflipbook/VictimManagement/VicctimManagement.dart';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,35 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _globalKey,
-        drawer: new Drawer(
-          child: Container(
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                ListTile(
-                  title: Text('HOME'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                  title: Text('ABOUT US'),
-                  contentPadding: const EdgeInsets.only(left: 30),
-                ),
-                Divider(
-                  color: Colors.grey.shade400,
-                ),
-                ListTile(
-                    title: Text('Log Out'),
-                    contentPadding: const EdgeInsets.only(left: 30),
-                    leading: Icon(Icons.logout, color: Colors.black))
-              ],
-            ),
-          ),
-        ),
+        drawer: new Drawer(child: CustomDrawer()),
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -165,6 +139,13 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => TrainingPage(),
                     ));
               }
+              if (index == 1) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Investigation(),
+                    ));
+              }
               if (index == 2) {
                 Navigator.push(
                     context,
@@ -177,6 +158,13 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => VictimManagePage(),
+                    ));
+              }
+              if (index == 6) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => References(),
                     ));
               }
               print(index);
