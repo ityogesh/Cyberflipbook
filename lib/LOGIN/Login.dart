@@ -1,6 +1,3 @@
-import 'package:cyberflipbook/BiometricVerification/verifyPage.dart';
-import 'package:cyberflipbook/ForgoPassword/ForgotpassPage.dart';
-import 'package:cyberflipbook/OTPverification/OTPdesign.dart';
 import 'package:cyberflipbook/Registration/registrationPage.dart';
 import 'package:cyberflipbook/Resouce/Constants.dart';
 import 'package:cyberflipbook/Resouce/CustomButton.dart';
@@ -128,7 +125,7 @@ class _LoginState extends State<Login> {
             onTap: () {
               showDialog(
                 context: context,
-                builder: (context) => VerifyOTP(),
+                builder: (context) {},
               );
             }));
   }
@@ -196,7 +193,7 @@ class _LoginState extends State<Login> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ForgotpasswordPage(),
+              builder: (context){},
             ));
       },
     );
@@ -271,7 +268,7 @@ class _LoginState extends State<Login> {
           if (_formKey.currentState.validate())
             showDialog(
               context: context,
-              builder: (context) => VerifyIdentityPage(),
+              builder: (context){},
             );
         });
   }
